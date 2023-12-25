@@ -1,0 +1,52 @@
+
+
+body{
+    direction: rtl;
+    background-color: blue 
+}
+img{
+    width: 100%;
+    border-radius: 10px;
+}
+h3{
+    margin: 0;
+}
+
+.youtube-shorts-card{
+    border: 2px solid black;
+    width: 150px;
+}
+#main-area-container{
+    margin: 5px;
+}
+.main-area{
+    display: flex;
+    justify-content: space-between;
+}
+
+.btn{
+    background-color: yellow;
+    border: 3px dotted red;
+    padding: 10px;
+
+}
+
+.whitebg{
+    background-color: white;
+}
+
+.tvmazeBtn, a{
+    background-color: gray;
+    border: none;
+    padding: 10px;
+    /* transition: all ease-in-out 1s; */
+}
+ 
+.tvmazeBtn:hover, a:hover{
+    background-color: rgb(70, 50, 50);
+    color: white;
+}
+
+.myBody{
+    background-color: brown 
+}
