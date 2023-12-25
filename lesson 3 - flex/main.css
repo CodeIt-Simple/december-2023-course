@@ -1,0 +1,61 @@
+body{
+    height: 3600px;
+}
+.container{
+    width: 800px;
+    height: 800px;
+    background: blue
+}
+
+.row{
+    display: flex;
+    height: 12.5%;
+}
+
+.square{
+    width: 12.5%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.circle{
+    height: 70%;
+    width: 70%;
+    border-radius: 50%;
+    transition: all ease-in-out .7s;
+}
+.circle2{
+    height: 80px;
+    width: 80px;
+    border-radius: 50%;
+    transition: all ease-in-out .7s;
+}
+.circle:hover{
+    height:30%;
+    width:30%;
+    background-color: gold;
+}
+
+.black{
+    background-color: black;
+}
+
+.white{
+    background-color: white;
+}
+
+.brown{
+    background-color: brown;
+}
+
+.beige{
+    background-color: beige;
+}
+
+.pos{
+    position: relative;
+    top: 80px;
+    left: 1000px;
+}
