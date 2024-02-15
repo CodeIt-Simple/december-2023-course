@@ -11,9 +11,11 @@ const Todos = () => {
             return await response.json();
         }  
     })
+
     if(isLoading){
         return <p>...loading</p>
     }
+    
     if(error){
         return <p>something went wrong</p>
     }

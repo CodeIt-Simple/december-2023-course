@@ -19,6 +19,10 @@ const Counter = ({ isTenTimes }) => {
     return () => {console.log('i am out!')};
   },[counter, isTenTimes])
 
+  useEffect(()=>{
+    console.log('wow')
+  },[])
+  
   return (
     <div>
       <button onClick={() => handleCount("dec")}>-</button>
