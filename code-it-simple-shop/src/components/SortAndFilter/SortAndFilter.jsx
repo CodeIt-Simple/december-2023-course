@@ -1,10 +1,19 @@
 import React from "react";
 import "./SortAndFilter.css"
-const SortAndFilter = ({ title, optionsArr, onChange}) => {
+import { useDispatch, useSelector } from "react-redux";
+import { setChosenCategory } from "../../store/slices/productSlice";
+const SortAndFilter = ({ title }) => {
+  const dispatch = useDispatch()
+  const optionsArr = useSelector(state => state.products.categories)
+
+  const handleChange = (value) => {
+    dispatch(setChosenCategory(value))
+  }
+  
   return (
     <div className="collection-sort">
       <label>{title}</label>
-      <select onChange={(event) => onChange(event.target.value)}>
+      <select onChange={(event) => handleChange(event.target.value)}>
         {optionsArr.map((option, index) => (
           <option key={index} value={option}>
             {option}
