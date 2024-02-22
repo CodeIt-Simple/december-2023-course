@@ -5,10 +5,22 @@ import Cart from "./pages/Cart/Cart";
 import About from "./pages/About/About";
 import NotFound from "./pages/NotFound/NotFound";
 import SingleItem from "./pages/SingleItem/SingleItem";
+import CustomDrawer from "./components/CustomDrawer/CustomDrawer";
 
 function App() {
   
   return (
+    <>
+    <CustomDrawer>
+        <ul className="drawerCustomExmaple">
+          <li>111111111111111</li>
+          <li>111111111111111</li>
+          <li>111111111111111</li>
+          <li>111111111111111</li>
+          <li>111111111111111</li>
+          <li>111111111111111</li>
+        </ul>
+      </CustomDrawer>
     <Routes>
       <Route path="/" element={<HomePage />} />
       <Route path="cart" element={<Cart />} />
@@ -16,6 +28,7 @@ function App() {
       <Route path="items/:itemID" element={<SingleItem />} />
       <Route path="*" element={<NotFound />} />
     </Routes>
+    </>
   );
 }
 

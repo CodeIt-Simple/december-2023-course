@@ -9,6 +9,9 @@ import { uniqueArrayMaker } from "../../utils/uniqueArrayMaker";
 import "./HomePage.css"
 import { useSelector, useDispatch } from 'react-redux';
 import { setAllCategories, setAllProducts } from '../../store/slices/productSlice';
+import { Drawer } from '@mui/material';
+import CustomDrawer from '../../components/CustomDrawer/CustomDrawer';
+
 // import Counter from "./components/Counter/Counter.jsx";
 // import Todos from "./components/Todos/Todos.jsx";
 
@@ -63,6 +66,7 @@ const dispatch = useDispatch();
   }
   return (
    <>
+      
       {/* <Counter isTenTimes={isTenTimes} /> */}
       <Nav isFilter/>
       {/* <button onClick={toggleTenTimesState}>
