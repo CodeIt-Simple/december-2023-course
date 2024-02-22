@@ -18,7 +18,7 @@ const HomePage = () => {
 //   const [categories, setCategories] = useState([]);
 const productsArr = useSelector(state => state.products.filteredProducts)
 const categories = useSelector(state => state.products.categories)
-const dispatch = useDispatch()
+const dispatch = useDispatch();
 
   const {isLoading, error, data} = useQuery({
     queryKey: ["products"],
@@ -73,6 +73,7 @@ const dispatch = useDispatch()
         {productsArr.map((product, index) => (
           <ProductCard
             key={index}
+            id={product.id}
             src={product.image}
             title={product.title}
             price={product.price}

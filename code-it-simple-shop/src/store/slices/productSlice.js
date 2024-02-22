@@ -23,7 +23,6 @@ export const productsSlice = createSlice({
       state.categories = action.payload;
     },
     setChosenCategory: (state, action) => {
-        console.log(action)
       state.chosenCategory = action.payload;
       if (action.payload === "All Products") {
         console.log("here")
@@ -45,3 +44,6 @@ export const {
 } = productsSlice.actions;
 
 export default productsSlice.reducer;
+
+
+
