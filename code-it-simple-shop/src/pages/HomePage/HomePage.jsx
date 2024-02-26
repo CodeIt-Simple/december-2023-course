@@ -1,46 +1,55 @@
-import React from 'react'
-import Nav from '../../components/Nav/Nav'
+import React from "react";
+import Nav from "../../components/Nav/Nav";
 import { useState } from "react";
 import ProductCard from "../../components/ProductCard/ProductCard";
 import { useQuery } from "@tanstack/react-query";
 import Loader from "../../components/Loader/Loader";
 import Error from "../../components/Error/Error";
 import { uniqueArrayMaker } from "../../utils/uniqueArrayMaker";
-import "./HomePage.css"
-import { useSelector, useDispatch } from 'react-redux';
-import { setAllCategories, setAllProducts } from '../../store/slices/productSlice';
-import { Drawer } from '@mui/material';
-import CustomDrawer from '../../components/CustomDrawer/CustomDrawer';
+import "./HomePage.css";
+import { useSelector, useDispatch } from "react-redux";
+import {
+  setAllCategories,
+  setAllProducts,
+} from "../../store/slices/productSlice";
+import { Drawer } from "@mui/material";
+import CustomDrawer from "../../components/CustomDrawer/CustomDrawer";
 
 // import Counter from "./components/Counter/Counter.jsx";
 // import Todos from "./components/Todos/Todos.jsx";
 
 const HomePage = () => {
-     // const [isTenTimes, setIsTenTimes] = useState(false);
-//   const [productsArr, setProductsArr] = useState([]);
-//   const [categories, setCategories] = useState([]);
-const productsArr = useSelector(state => state.products.filteredProducts)
-const categories = useSelector(state => state.products.categories)
-const dispatch = useDispatch();
-
-  const {isLoading, error, data} = useQuery({
+  // const [isTenTimes, setIsTenTimes] = useState(false);
+  //   const [productsArr, setProductsArr] = useState([]);
+  //   const [categories, setCategories] = useState([]);
+  const productsArr = useSelector((state) => state.products.filteredProducts);
+  const dispatch = useDispatch();
+console.log(productsArr)
+  const { isLoading, error, data } = useQuery({
     queryKey: ["products"],
     queryFn: async () => {
-      const response = await fetch('https://fakestoreapi.com/products');
-      const data = await response.json();
-      console.log(data)
-      const allCategories = data.map(prd => prd.category);
-      const uniqueCategories = uniqueArrayMaker(allCategories)
-      uniqueCategories.unshift("All Products")
-      dispatch(setAllProducts(data));
-      dispatch(setAllCategories(uniqueCategories));
-    //   setCategories(['All Products', ...uniqueCategories])
-    //   setProductsArr(data);
-      return data
-    }
-  })
+      if(productsArr.length === 0){
+
+        console.log('happened')
+        const response = await fetch("https://fakestoreapi.com/products");
+        const data = await response.json();
+        const productsWithQuantity = data.map((product) => {
+          return { ...product, quantity: 0 };
+        });
+        const allCategories = data.map((prd) => prd.category);
+        const uniqueCategories = uniqueArrayMaker(allCategories);
+        uniqueCategories.unshift("All Products");
+        dispatch(setAllProducts(productsWithQuantity));
+        dispatch(setAllCategories(uniqueCategories));
+        //   setCategories(['All Products', ...uniqueCategories])
+        //   setProductsArr(data);
+        return data;
+      }
+      return []
+    },
+  });
   // const toggleTenTimesState = () => {
-    // setIsTenTimes(!isTenTimes);
+  // setIsTenTimes(!isTenTimes);
   // };
 
   // const handleAddProduct = () => {
@@ -54,21 +63,20 @@ const dispatch = useDispatch();
   //   setProductsArr(newArr);
   //   setProductsArr([newProduct, ...productsArr]);
   // };
-//   const FilterProducts = (category) => {
-//     setProductsArr( category === "All Products" ? data : data.filter(product => product.category === category))
-//   }
+  //   const FilterProducts = (category) => {
+  //     setProductsArr( category === "All Products" ? data : data.filter(product => product.category === category))
+  //   }
 
-  if(isLoading) {
-    return <Loader />
+  if (isLoading) {
+    return <Loader />;
   }
-  if(error){
-    return <Error/>
+  if (error) {
+    return <Error />;
   }
   return (
-   <>
-      
+    <>
       {/* <Counter isTenTimes={isTenTimes} /> */}
-      <Nav isFilter/>
+      <Nav isFilter />
       {/* <button onClick={toggleTenTimesState}>
         {isTenTimes ? "switch to single" : "switch to tens"}
       </button> */}
@@ -81,11 +89,13 @@ const dispatch = useDispatch();
             src={product.image}
             title={product.title}
             price={product.price}
+            quantity={product.quantity}
           />
         ))}
       </section>
       {/* <Todos /> */}
-    </>  )
-}
+    </>
+  );
+};
 
-export default HomePage
+export default HomePage;

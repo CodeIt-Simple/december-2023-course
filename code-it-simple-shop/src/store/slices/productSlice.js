@@ -33,6 +33,11 @@ export const productsSlice = createSlice({
         );
       }
     },
+    setProductQuantity: (state,action) => {
+      const productIndex = state.products.findIndex(prd => prd.id === action.payload.id)
+      state.products[productIndex].quantity = action.payload.quantity
+      state.filteredProducts[productIndex].quantity = action.payload.quantity
+    }
   },
 });
 
@@ -41,6 +46,7 @@ export const {
   setSingleProducts,
   setAllCategories,
   setChosenCategory,
+  setProductQuantity
 } = productsSlice.actions;
 
 export default productsSlice.reducer;

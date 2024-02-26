@@ -12,15 +12,8 @@ function App() {
   return (
     <>
     <CustomDrawer>
-        <ul className="drawerCustomExmaple">
-          <li>111111111111111</li>
-          <li>111111111111111</li>
-          <li>111111111111111</li>
-          <li>111111111111111</li>
-          <li>111111111111111</li>
-          <li>111111111111111</li>
-        </ul>
-      </CustomDrawer>
+       <Cart isDrawer/>
+    </CustomDrawer>
     <Routes>
       <Route path="/" element={<HomePage />} />
       <Route path="cart" element={<Cart />} />
