@@ -1,8 +1,8 @@
 [
-  { "id": 1, "name": "almog", "age": 33, "hobby": "programming" },
-  { "id": 2, "name": "asaf", "age": 22, "hobby": "guitar" },
-  { "id": 3, "name": "daniel", "age": 26, "hobby": "computer games" },
-  { "id": 4, "name": "shai", "age": 27, "hobby": "rapping" },
-  { "id": 5, "name": "ori", "age": 28, "hobby": "chill" },
-  { "id": 6, "name": "shimi", "age": 30, "hobby": "weaving" }
+  { "name": "almog", "age": 33, "hobby": "programming" },
+  { "name": "asaf", "age": 22, "hobby": "guitar" },
+  { "name": "daniel", "age": 26, "hobby": "computer games" },
+  { "name": "shai", "age": 27, "hobby": "rapping" },
+  { "name": "ori", "age": 28, "hobby": "chill" },
+  { "name": "shimi", "age": 30, "hobby": "weaving" }
 ]
