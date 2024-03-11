@@ -1,9 +1,8 @@
 import express from "express";
 import cors from "cors";
 import mongoose from "mongoose";
+import { DB_CLUSTER, DB_NAME, DB_PASS, DB_USERNAME, port } from "./config/config.js";
 
-const port = 3000;
-const dbPort = 27017;
 const app = express();
 
 const userSchema = new mongoose.Schema({
@@ -110,7 +109,7 @@ app.delete("/deleteUser/:id", async (req, res) => {
 
 app.listen(port, async () => {
   try {
-    await mongoose.connect(`mongodb://localhost:${dbPort}/CodeItSimpleShop`);
+    await mongoose.connect(`mongodb+srv://${DB_USERNAME}:${DB_PASS}@${DB_CLUSTER}/${DB_NAME}`);
     console.log(`Example app listening on port ${port}`);
   } catch (e) {
     console.log(e);
